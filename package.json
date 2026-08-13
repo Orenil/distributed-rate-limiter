@@ -1,0 +1,30 @@
+{
+  "name": "distributed-rate-limiter",
+  "version": "1.0.0",
+  "description": "Hierarchical, multi-tenant sliding-window rate limiter — in-process library and standalone NestJS HTTP sidecar.",
+  "license": "MIT",
+  "private": true,
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json && mkdir -p dist/adapters/lua && cp src/adapters/lua/sliding-window.lua dist/adapters/lua/",
+    "start": "node dist/sidecar/main.js",
+    "start:dev": "ts-node src/sidecar/main.ts",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@nestjs/common": "^11.1.29",
+    "@nestjs/core": "^11.1.29",
+    "@nestjs/platform-express": "^11.1.29",
+    "ioredis": "^5.4.2",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3",
+    "vitest": "^3.2.4"
+  }
+}
